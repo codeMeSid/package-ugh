@@ -1,7 +1,11 @@
 {
   "name": "@monsid/ugh",
   "version": "1.0.2",
-  "main": "dist/index.js",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "files": [
+    "build/**/*"
+  ],
   "scripts": {
     "clean": "del ./build/*",
     "build": "npm run clean && tsc",
