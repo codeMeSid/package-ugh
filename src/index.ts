@@ -3,6 +3,7 @@ export * from "./utils/logger";
 export * from "./utils/mongo-config";
 export * from "./utils/scheduler";
 export * from "./utils/jwt";
+export * from "./utils/encrypt";
 /** Errors */
 export * from "./errors/custom-error";
 export * from "./errors/bad-request-error";
