@@ -19,6 +19,12 @@ export * from "./enums/http-methods";
 /** Interface */
 export * from "./interfaces/user-payload";
 export * from "./interfaces/api-sign";
+export * from "./interfaces/user/address";
+export * from "./interfaces/user/gamer-profile";
+export * from "./interfaces/user/id-proof";
+export * from "./interfaces/user/settings";
+export * from "./interfaces/user/wallet";
+
 /** Middleware */
 export * from "./middlewares/current-user";
 export * from "./middlewares/error-handler";
