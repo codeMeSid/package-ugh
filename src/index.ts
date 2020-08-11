@@ -16,6 +16,7 @@ export * from "./enums/node-env";
 export * from "./enums/http-method";
 /** Interface */
 export * from "./interfaces/user-payload";
+export * from "./interfaces/api-sign";
 /** Middleware */
 export * from "./middlewares/current-user";
 export * from "./middlewares/error-handler";
