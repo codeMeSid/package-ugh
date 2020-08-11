@@ -1,4 +1,4 @@
-import { HttpMethod } from "../enums/http-method";
+import { HttpMethod } from "../enums/http-methods";
 
 export interface ApiSign {
   url: string;

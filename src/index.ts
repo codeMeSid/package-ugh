@@ -13,8 +13,9 @@ export * from "./errors/not-found-error";
 export * from "./errors/request-validation-error";
 /** Enum */
 export * from "./enums/user-roles";
+export * from "./enums/user-activity";
 export * from "./enums/node-env";
-export * from "./enums/http-method";
+export * from "./enums/http-methods";
 /** Interface */
 export * from "./interfaces/user-payload";
 export * from "./interfaces/api-sign";
