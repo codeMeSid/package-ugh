@@ -9,8 +9,8 @@
   "scripts": {
     "clean": "del ./build/*",
     "build": "npm run clean && tsc",
-    "git": "git add . && git commit -am 'publish'",
-    "pub": "npm run git && npm run build && npm version patch && npm publish"
+    "git": "git add . && git commit -am 'publish' && git push",
+    "pub": "npm run git && npm run build && npm version patch && npm publish --access publish"
   },
   "keywords": [],
   "author": "siddhant",
