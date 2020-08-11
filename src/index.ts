@@ -12,6 +12,7 @@ export * from "./errors/not-found-error";
 export * from "./errors/request-validation-error";
 /** Enum */
 export * from "./enums/user-roles";
+export * from "./enums/node-env";
 /** Interface */
 export * from "./interfaces/user-payload";
 /** Middleware */
