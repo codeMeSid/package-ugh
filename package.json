@@ -1,7 +1,6 @@
 {
-  "name": "@makes-sense/ugh",
+  "name": "@monsid/ugh",
   "version": "1.0.0",
-  "description": "",
   "main": "dist/index.js",
   "scripts": {
     "clean": "del ./build/*",
@@ -10,8 +9,8 @@
     "pub": "npm run git && npm run build && npm version patch && npm publish"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "siddhant",
+  "license": "MIT",
   "devDependencies": {
     "@types/agenda": "^2.0.9",
     "@types/express": "^4.17.7",
@@ -29,5 +28,6 @@
     "express-validator": "^6.6.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.28"
-  }
+  },
+  "description": ""
 }
