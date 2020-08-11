@@ -1,0 +1,81 @@
+import Agenda from "agenda";
+import { successlog, errorlog, infolog } from "./logger";
+
+class Timer {
+  private agenda!: Agenda;
+
+  async connect(uri: string): Promise<void> {
+    this.agenda = new Agenda({
+      db: {
+        address: uri,
+        collection: "Timers",
+        options: {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+        },
+      },
+    });
+    await new Promise((resolve) =>
+      this.agenda.once("ready", async () => {
+        await this.agenda.start();
+        successlog("Timer is running");
+        resolve();
+      })
+    );
+
+    this.agenda.on("error", (error) => {
+      errorlog(error.message);
+    });
+  }
+
+  schedule(
+    jobName: string,
+    jobStartDateTime: Date | string,
+    jobFunction: any,
+    jobData: any
+  ): void {
+    if (!this.agenda) {
+      errorlog("cannot schedule before init");
+      throw new Error();
+    }
+    this.agenda.define(jobName, { priority: "highest" }, (job, done) => {
+      jobFunction(job.attrs.data);
+      done();
+    });
+    this.agenda.schedule(jobStartDateTime, jobName, jobData);
+  }
+
+  repeat(
+    jobName: string,
+    jobInterval: string,
+    jobFunction: any,
+    jobData: any
+  ): void {
+    if (!this.agenda) {
+      throw new Error("cannot schedule before init");
+    }
+    this.agenda.define(jobName, { priority: "highest" }, (job, done) => {
+      jobFunction(job.attrs.data);
+      done();
+    });
+    this.agenda.every(jobInterval, jobName, jobData);
+  }
+
+  async cancel(jobName: string) {
+    await this.agenda.cancel({ name: jobName });
+  }
+
+  // stop() {
+  //   return this.agenda
+  //     .stop()
+  //     .then(() => process.exit(0))
+  //     .catch(() => {});
+  // }
+
+  async removeAll() {
+    const jobsRemoved = await this.agenda.purge();
+    infolog(`removed ${jobsRemoved} jobs`);
+  }
+}
+
+export const timer = new Timer();
