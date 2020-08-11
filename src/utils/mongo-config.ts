@@ -9,7 +9,7 @@ export const startDb = async (uri: string): Promise<void> => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       },
-      (err) => {
+      (err: any) => {
         if (err) {
           errorlog(err.message);
           throw new DatabaseConnectionError();
