@@ -13,6 +13,7 @@ export * from "./errors/request-validation-error";
 /** Enum */
 export * from "./enums/user-roles";
 export * from "./enums/node-env";
+export * from "./enums/http-method";
 /** Interface */
 export * from "./interfaces/user-payload";
 /** Middleware */

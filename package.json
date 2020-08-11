@@ -1,6 +1,6 @@
 {
   "name": "@monsid/ugh",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "files": [
@@ -33,5 +33,13 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.28"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeMeSid/package-ugh.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codeMeSid/package-ugh/issues"
+  },
+  "homepage": "https://github.com/codeMeSid/package-ugh#readme",
   "description": ""
 }
