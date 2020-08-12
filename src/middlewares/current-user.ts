@@ -20,7 +20,10 @@ export const currentUser = (
   }
 
   try {
-    const payload = decodeToken(req.session.jwt, process.env.JWT_KEY!);
+    const payload = decodeToken(
+      req.session.jwt,
+      process.env.JWT_KEY!
+    ) as UserPayload;
     req.currentUser = payload;
   } catch (err) {}
 
