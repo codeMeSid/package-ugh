@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
+import jwt from "jsonwebtoken";
 import { UserPayload } from "../interfaces/user-payload";
-import { decodeToken } from "../utils/jwt";
 
 declare global {
   namespace Express {
@@ -20,12 +20,11 @@ export const currentUser = (
   }
 
   try {
-    const payload = decodeToken(
+    const payload = jwt.verify(
       req.session.jwt,
       process.env.JWT_KEY!
     ) as UserPayload;
     req.currentUser = payload;
   } catch (err) {}
-
   next();
 };
