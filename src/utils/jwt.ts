@@ -7,7 +7,6 @@ export const generateToken = async (
   key: string
 ): Promise<string> => {
   const token = await jwt.sign(object, key);
-  infolog(JSON.stringify({ token, object, key }, null, 2));
   return token;
 };
 

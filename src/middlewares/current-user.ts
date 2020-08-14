@@ -20,7 +20,6 @@ export const currentUser = (
     return next();
   }
   try {
-    infolog(JSON.stringify(req.session, null, 2));
     const payload = jwt.verify(
       req.session.jwt,
       process.env.JWT_KEY!
