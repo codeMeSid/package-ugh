@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import { UserPayload } from "../interfaces/user-payload";
+import { infolog } from "../utils/logger";
 
 declare global {
   namespace Express {
@@ -19,6 +20,7 @@ export const currentUser = (
     return next();
   }
   try {
+    infolog(JSON.stringify(req.session, null, 2));
     const payload = jwt.verify(
       req.session.jwt,
       process.env.JWT_KEY!
