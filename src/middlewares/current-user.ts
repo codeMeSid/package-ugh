@@ -6,7 +6,7 @@ import { infolog } from "../utils/logger";
 declare global {
   namespace Express {
     interface Request {
-      currentUser?: UserPayload;
+      currentUser: UserPayload;
     }
   }
 }
@@ -20,11 +20,11 @@ export const currentUser = (
     return next();
   }
   try {
-    const payload: UserPayload = jwt.verify(
+    const payload = jwt.verify(
       req.session.jwt,
       process.env.JWT_KEY!
     ) as UserPayload;
-    req.currentUser = payload as UserPayload;
+    req.currentUser = payload;
   } catch (err) {}
   next();
 };
