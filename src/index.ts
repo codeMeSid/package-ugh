@@ -26,7 +26,7 @@ export * from "./interfaces/user/gamer-profile";
 export * from "./interfaces/user/id-proof";
 export * from "./interfaces/user/settings";
 export * from "./interfaces/user/wallet";
-
+export * from "./interfaces/user/recovery";
 /** Middleware */
 export * from "./middlewares/current-user";
 export * from "./middlewares/error-handler";
