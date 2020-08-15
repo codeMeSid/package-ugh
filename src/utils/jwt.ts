@@ -1,19 +1,18 @@
 import jwt from "jsonwebtoken";
 import { UserPayload } from "../interfaces/user-payload";
-import { infolog } from "./logger";
 
-export const generateToken = async (
-  object: UserPayload,
+export const generateToken = (
+  object: UserPayload | string,
   key: string
-): Promise<string> => {
-  const token = await jwt.sign(object, key);
+): string => {
+  const token = jwt.sign(object, key);
   return token;
 };
 
 export const decodeToken = (
   token: string,
   secret: string
-): UserPayload | undefined => {
-  const payload = jwt.verify(token, secret) as UserPayload;
+): UserPayload | string | undefined => {
+  const payload = jwt.verify(token, secret) as UserPayload | string;
   return payload;
 };
