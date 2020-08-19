@@ -1,4 +1,4 @@
-export interface Contact {
+export interface SponsorContact {
   phone: string;
   email: string;
 }

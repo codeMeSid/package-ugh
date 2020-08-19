@@ -29,7 +29,7 @@ export * from "./interfaces/user/wallet";
 export * from "./interfaces/user/recovery";
 export * from "./interfaces/game/game-groups";
 export * from "./interfaces/sponsor/sponsor-pack";
-export * from "./interfaces/sponsor/contact";
+export * from "./interfaces/sponsor/sponsor-contact";
 /** Middleware */
 export * from "./middlewares/current-user";
 export * from "./middlewares/error-handler";
