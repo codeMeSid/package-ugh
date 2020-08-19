@@ -30,6 +30,7 @@ export * from "./interfaces/user/recovery";
 export * from "./interfaces/game/game-groups";
 export * from "./interfaces/sponsor/sponsor-pack";
 export * from "./interfaces/sponsor/sponsor-contact";
+export * from "./interfaces/sponsor/sponsor-link";
 /** Middleware */
 export * from "./middlewares/current-user";
 export * from "./middlewares/error-handler";
