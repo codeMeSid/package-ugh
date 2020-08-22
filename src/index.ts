@@ -18,6 +18,7 @@ export * from "./enums/user-roles";
 export * from "./enums/user-activity";
 export * from "./enums/node-env";
 export * from "./enums/http-methods";
+export * from "./enums/social-types";
 /** Interface */
 export * from "./interfaces/user-payload";
 export * from "./interfaces/api-sign";
