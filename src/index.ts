@@ -19,6 +19,7 @@ export * from "./enums/user-activity";
 export * from "./enums/node-env";
 export * from "./enums/http-methods";
 export * from "./enums/social-types";
+export * from "./enums/transaction-types";
 /** Interface */
 export * from "./interfaces/user-payload";
 export * from "./interfaces/api-sign";
