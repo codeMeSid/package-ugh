@@ -20,6 +20,7 @@ export * from "./enums/node-env";
 export * from "./enums/http-methods";
 export * from "./enums/social-types";
 export * from "./enums/transaction-types";
+export * from "./enums/tournament-status";
 /** Interface */
 export * from "./interfaces/user-payload";
 export * from "./interfaces/api-sign";
