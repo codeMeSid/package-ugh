@@ -31,7 +31,7 @@ class Timer {
   schedule(
     jobName: string,
     jobStartDateTime: Date | string,
-    jobFunction: any,
+    jobFunction: (jobData: any) => any,
     jobData: any
   ): void {
     if (!this.agenda) {
@@ -48,7 +48,7 @@ class Timer {
   repeat(
     jobName: string,
     jobInterval: string,
-    jobFunction: any,
+    jobFunction: (jobData: any) => any,
     jobData: any
   ): void {
     if (!this.agenda) {
