@@ -32,7 +32,7 @@ class PaymentHandler {
   async verifyTransaction(
     paymentId: string,
     orderId: string
-  ): Promise<boolean> {
+  ): Promise<string | undefined> {
     if (!this.razorpay)
       throw new BadRequestError("Initialising Transaction Failed");
     const payment:
@@ -42,12 +42,14 @@ class PaymentHandler {
       orderId
     );
 
-    if (!payment) return false;
-    if (order?.id !== orderId) return false;
-    if (order.status !== "paid") return false;
-    if (payment.status !== TransactionTypes.Captured) return false;
+    if (!payment) throw new BadRequestError("Invalid Transaction");
+    if (order?.id !== orderId) throw new BadRequestError("Invalid Transaction");
+    if (order.status !== "paid")
+      throw new BadRequestError("Invalid Transaction");
+    if (payment.status !== TransactionTypes.Captured)
+      throw new BadRequestError("Invalid Transaction");
 
-    return true;
+    return order.receipt;
   }
 }
 
