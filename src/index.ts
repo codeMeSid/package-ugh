@@ -7,6 +7,7 @@ export * from "./utils/encrypt";
 export * from "./utils/profanity-filter";
 export * from "./utils/isValidDob";
 export * from "./utils/payment-handler";
+export * from "./utils/request";
 /** Errors */
 export * from "./errors/custom-error";
 export * from "./errors/bad-request-error";
