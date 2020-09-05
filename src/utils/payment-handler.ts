@@ -29,10 +29,7 @@ class PaymentHandler {
     });
   }
 
-  async verifyTransaction(
-    paymentId: string,
-    orderId: string
-  ): Promise<string | undefined> {
+  async verifyTransaction(paymentId: string, orderId: string): Promise<any> {
     if (!this.razorpay)
       throw new BadRequestError("Initialising Transaction Failed");
     const payment:
@@ -49,7 +46,7 @@ class PaymentHandler {
     if (payment.status !== TransactionTypes.Captured)
       throw new BadRequestError("Invalid Transaction");
 
-    return order.receipt;
+    return { reciept: order.receipt, status: payment.status };
   }
 }
 
