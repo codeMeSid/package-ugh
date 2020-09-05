@@ -42,11 +42,11 @@ class PaymentHandler {
     if (!payment) throw new BadRequestError("Invalid Transaction");
     if (order?.id !== orderId) throw new BadRequestError("Invalid Transaction");
     if (order.status !== "paid")
-      throw new BadRequestError("Invalid Transaction");
+      throw new BadRequestError("Transaction Failed");
     if (payment.status !== TransactionTypes.Captured)
-      throw new BadRequestError("Invalid Transaction");
+      throw new BadRequestError("Transaction Failed");
 
-    return { reciept: order.receipt, status: payment.status };
+    return order.receipt;
   }
 }
 
