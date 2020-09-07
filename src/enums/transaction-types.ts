@@ -3,4 +3,5 @@ export enum TransactionTypes {
   Created = "created",
   Captured = "captured",
   Refunded = "refunded",
+  Rejected = "rejected",
 }
