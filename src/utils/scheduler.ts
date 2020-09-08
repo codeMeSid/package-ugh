@@ -28,6 +28,10 @@ class Timer {
     });
   }
 
+  get _agenda() {
+    return this.agenda;
+  }
+
   schedule(
     jobName: string,
     jobStartDateTime: Date | string,
