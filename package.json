@@ -1,6 +1,6 @@
 {
   "name": "@monsid/ugh",
-  "version": "0.0.44",
+  "version": "0.0.45",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "files": [
