@@ -1,4 +1,4 @@
 export interface UserTournament {
-  tournament: string;
+  id: string;
   didWin: boolean;
 }
