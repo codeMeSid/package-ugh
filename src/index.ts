@@ -37,6 +37,7 @@ export * from "./interfaces/sponsor/sponsor-contact";
 export * from "./interfaces/sponsor/sponsor-link";
 export * from "./interfaces/message";
 export * from "./interfaces/request-util";
+export * from "./interfaces/user/tournament";
 /** Middleware */
 export * from "./middlewares/current-user";
 export * from "./middlewares/error-handler";
