@@ -13,19 +13,13 @@ class Filter {
     const key = Object.keys(obj)[0];
     const value: string = Object.values(obj)[0];
     const isBad = this.filterObj.isProfane(value);
-    if (isBad) {
-      throw new BadRequestError(`${key} voilates UGH profanity rules`);
-    } else {
-      const words = value.split("");
-      for (let i = 0; i < words.length; i++) {
-        let word = "";
-        for (let j = i; j < words.length; j++) {
-          word += words[j];
-          if (this.filterObj.isProfane(word)) {
-            throw new BadRequestError(`${key} voilates UGH profanity rules`);
-          }
-        }
-      }
+    if (isBad) throw new BadRequestError(`${key} voilates UGH profanity rules`);
+    else {
+      const words = value.split(" ");
+      words.forEach((word) => {
+        if (this.filterObj.isProfane(word))
+          throw new BadRequestError(`${key} voilates UGH profanity rules`);
+      });
     }
   }
 }
