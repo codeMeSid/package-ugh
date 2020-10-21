@@ -1,6 +1,6 @@
 {
   "name": "@monsid/ugh",
-  "version": "0.0.55",
+  "version": "0.0.56",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "files": [
@@ -10,7 +10,7 @@
     "clean": "del ./build/*",
     "build": "npm run clean && tsc",
     "git": "git add . && git commit -am 'publish' && git push",
-    "pub": "npm run git && npm run build && npm version patch && npm publish --access publish"
+    "pub": "npm run git && npm run build && npm publish --access publish"
   },
   "keywords": [],
   "author": "siddhant",
