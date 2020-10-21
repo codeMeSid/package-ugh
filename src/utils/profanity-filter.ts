@@ -14,7 +14,6 @@ class Filter {
     const value: string = Object.values(obj)[0];
     const isBad = this.filterObj.isProfane(value);
     if (isBad) throw new BadRequestError(`${key} voilates UGH profanity rules`);
-    // check fo huge sentences
     else {
       const words = value.split(" ");
       words.forEach((word) => {
