@@ -35,7 +35,7 @@ class Timer {
   schedule(
     jobName: string,
     jobStartDateTime: Date | string,
-    jobFunction: (jobData: any) => any,
+    jobFunction: (jobData: any, done: any) => any,
     jobData: any
   ): void {
     if (!this.agenda) {
@@ -43,8 +43,7 @@ class Timer {
       throw new Error();
     }
     this.agenda.define(jobName, { priority: "highest" }, (job, done) => {
-      jobFunction(job.attrs.data);
-      done();
+      jobFunction(job.attrs.data, done);
     });
     this.agenda.schedule(jobStartDateTime, jobName, jobData);
   }
