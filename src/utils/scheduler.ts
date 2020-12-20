@@ -19,7 +19,7 @@ class Timer {
       this.agenda.once("ready", async () => {
         await this.agenda.start();
         successlog("Timer is running");
-        resolve();
+        resolve(true);
       })
     );
 
@@ -52,15 +52,14 @@ class Timer {
   repeat(
     jobName: string,
     jobInterval: string,
-    jobFunction: (jobData: any) => any,
+    jobFunction: (jobData: any, done: any) => any,
     jobData: any
   ): void {
     if (!this.agenda) {
       throw new Error("cannot schedule before init");
     }
     this.agenda.define(jobName, { priority: "highest" }, (job, done) => {
-      jobFunction(job.attrs.data);
-      done();
+      jobFunction(job.attrs.data, done);
     });
     this.agenda.every(jobInterval, jobName, jobData);
   }
