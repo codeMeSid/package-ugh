@@ -1,13 +1,13 @@
 {
   "name": "@monsid/ugh",
-  "version": "0.0.55",
+  "version": "0.0.0",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "files": [
     "build/**/*"
   ],
   "scripts": {
-    "clean": "del ./build/*",
+    "clean": "del build",
     "build": "npm run clean && tsc",
     "git": "git add . && git commit -am 'publish' && git push",
     "pub": "npm run build && npm version patch && npm publish --access publish"
