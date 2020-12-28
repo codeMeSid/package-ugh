@@ -48,7 +48,7 @@ class Timer {
       errorlog("cannot schedule before init");
       throw new Error();
     }
-    this.agenda.define(jobName, { priority: "highest" }, (job, done) => {
+    this.agenda.define(jobName, { lockLifetime: 10000, concurrency: 100 }, (job, done) => {
       jobFunction(job.attrs.data, done);
     });
     this.agenda.schedule(jobStartDateTime, jobName, jobData);
