@@ -14,7 +14,11 @@ class Timer {
           useUnifiedTopology: true,
         },
       },
+    }, (err, res) => {
+      if (!err)
+        res?.updateMany({ lockedAt: { $exists: true } }, { $set: { lockedAt: null } }).catch(err => console.error(err.message));
     });
+
     await new Promise((resolve) =>
       this.agenda.once("ready", async () => {
         await this.agenda.start();
