@@ -16,7 +16,9 @@ class Timer {
       },
     }, (err, res) => {
       if (!err)
-        res?.updateMany({ lockedAt: { $exists: true } }, { $set: { lockedAt: null } }).catch(err => console.error(err.message));
+        res?.updateMany({ lockedAt: { $exists: true } }, { $set: { lockedAt: null } }).then(res => {
+          console.log(`restarted ${res.modifiedCount} tournament timers`);
+        }).catch(err => console.error(err.message));
     });
 
     await new Promise((resolve) =>
