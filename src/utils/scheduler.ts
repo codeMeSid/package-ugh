@@ -14,15 +14,24 @@ class Timer {
           useUnifiedTopology: true,
         },
       },
-    }, (err, res) => {
-      if (!err)
-        res?.updateMany({ $or: [{ lockedAt: { $exists: true } }, { nextRunAt: { $exists: true } }] }, {
-          $set: {
-            lockedAt: null, nextRunAt: new Date(Date.now() + (1000 * 60 * 5))
-          }
-        }).then(res => {
-          console.log(`restarted ${res.modifiedCount} tournament timers`);
-        }).catch(err => console.error(err.message));
+    }, async (err, res) => {
+      if (!err) {
+        const timersToRestart = await res?.find({ $or: [{ lockedAt: { $exists: true } }, { nextRunAt: { $exists: true } }] });
+        console.log(timersToRestart);
+        // await Promise.all([
+        //   timersToRestart?.map(timer => { 
+        //     return 
+        //   })
+        // ])
+
+        // res?.updateMany({ $or: [{ lockedAt: { $exists: true } }, { nextRunAt: { $exists: true } }] }, {
+        //   $set: {
+        //     lockedAt: null, nextRunAt: new Date(Date.now() + (1000 * 60 * 5))
+        //   }
+        // }).then(res => {
+        //   console.log(`restarted ${res.modifiedCount} tournament timers`);
+        // }).catch(err => console.error(err.message));
+      }
     });
 
     await new Promise((resolve) =>
