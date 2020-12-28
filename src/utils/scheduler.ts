@@ -14,24 +14,6 @@ class Timer {
           useUnifiedTopology: true,
         },
       },
-    }, async (err, res) => {
-      if (!err) {
-        const timersToRestart = res?.find({ $or: [{ lockedAt: { $exists: true } }, { nextRunAt: { $exists: true } }] });
-        timersToRestart?.map(doc => console.log(doc));
-        // await Promise.all([
-        //   timersToRestart?.map(timer => { 
-        //     return 
-        //   })
-        // ])
-
-        // res?.updateMany({ $or: [{ lockedAt: { $exists: true } }, { nextRunAt: { $exists: true } }] }, {
-        //   $set: {
-        //     lockedAt: null, nextRunAt: new Date(Date.now() + (1000 * 60 * 5))
-        //   }
-        // }).then(res => {
-        //   console.log(`restarted ${res.modifiedCount} tournament timers`);
-        // }).catch(err => console.error(err.message));
-      }
     });
 
     await new Promise((resolve) =>
