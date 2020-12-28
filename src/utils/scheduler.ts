@@ -16,7 +16,11 @@ class Timer {
       },
     }, (err, res) => {
       if (!err)
-        res?.updateMany({ lockedAt: { $exists: true } }, { $set: { lockedAt: null } }).then(res => {
+        res?.updateMany({ $or: [{ lockedAt: { $exists: true } }, { nextRunAt: { $exists: true } }] }, {
+          $set: {
+            lockedAt: null, nextRunAt: new Date(Date.now() + (1000 * 60 * 5))
+          }
+        }).then(res => {
           console.log(`restarted ${res.modifiedCount} tournament timers`);
         }).catch(err => console.error(err.message));
     });
