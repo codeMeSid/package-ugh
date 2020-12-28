@@ -16,8 +16,8 @@ class Timer {
       },
     }, async (err, res) => {
       if (!err) {
-        const timersToRestart = await res?.find({ $or: [{ lockedAt: { $exists: true } }, { nextRunAt: { $exists: true } }] });
-        console.log(timersToRestart);
+        const timersToRestart = res?.find({ $or: [{ lockedAt: { $exists: true } }, { nextRunAt: { $exists: true } }] });
+        timersToRestart?.map(doc => console.log(doc));
         // await Promise.all([
         //   timersToRestart?.map(timer => { 
         //     return 
