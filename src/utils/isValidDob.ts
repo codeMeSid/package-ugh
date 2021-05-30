@@ -10,8 +10,8 @@ export const isValidDob = (dob: string | Date) => {
   const sd = new Date(dob).valueOf();
   const cd = new Date().valueOf();
 
-  if (cd - sd < daysIn1Year * 13) {
-    throw new BadRequestError("Minimum age requirement 13 years");
+  if (cd - sd < daysIn1Year * 16) {
+    throw new BadRequestError("Minimum age requirement 16 years");
   }
   return new Date(sd);
 };
